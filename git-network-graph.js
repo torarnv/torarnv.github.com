@@ -111,9 +111,6 @@ function drawGraph(data) {
 		for (i = 0; i < commits.length; ++i) {
 					var commit = commits[i]
 
-					// How to draw it (based on place and user)
-//					ctx.fillStyle = "black"; //'rgb('+(14 * commit.space)+','+(255- 14 * commit.space)+',255)';
-
 					ctx.fillStyle = colorForSpace(commit.space)
 					ctx.strokeStyle = "transparent";//bgColor;
 
@@ -147,7 +144,7 @@ function drawCommit(ctx, time, space) {
 
 function fetchData() {
 	var req = new XMLHttpRequest();
-	req.open("GET", "foo.php", true);
+	req.open("GET", "http://github.com/Arora/arora/network_data_chunk", true);
 	req.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var data = JSON.parse(this.responseText);
