@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en"><head>
+
+
+
+
+  <link rel="icon" href="http://www.qtsoftware.com/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="http://www.qtsoftware.com/favicon.ico" type="image/x-icon">
+  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Commit in qt in Qt - Qt by Nokia</title>
+<link href="Filer_for_diff/base.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="Filer_for_diff/qt.css" media="screen" rel="stylesheet" type="text/css"></head><body id="commits">
+    <div id="header">
+    <h1 id="logo">
+      <a href="http://qt.gitorious.org/"><img alt="Qt-logo" src="Filer_for_diff/qt-logo.png"></a> 
+    </h1>
+    
+    <ul id="menu">
+              <li><a href="http://qt.gitorious.org/">Home</a></li>
+                  
+    	<li class="secondary"><a href="http://qt.gitorious.org/users/new">Register</a></li>
+    <li class="secondary"><a href="http://qt.gitorious.org/login">Login</a></li>
+    </ul>
+    
+    <div id="searchbox">
+      
+
+
+<div class="search_bar">
+<form action="http://gitorious.org/search" method="get"><p>
+  <input class="text search-field round-5" id="q" name="q" type="text"> 
+  <input value="Search" class="search-submit round-5" type="submit">
+</p>  
+<p class="hint search-hint">
+  eg. 'wrapper', 'category:python' or '"document database"'
+    - <small><a href="#advanced" onclick="$('search_help').toggle()">Advanced search tips</a></small>
+  </p>
+</form></div>    </div>
+    
+	  </div>
+    <ul id="breadcrumbs">
+    <li class="project"><a href="http://qt.gitorious.org/qt">Qt</a></li><li class="repository"><a href="http://qt.gitorious.org/qt/qt">qt</a></li><li class="commit"><a href="http://qt.gitorious.org/qt/qt/commit/c38e1a5">c38e1a5</a></li>  </ul>
+    <div id="container" class="">
+    <div id="content" class="">
+      
+      
+
+
+<h1>Commit c38e1a53cee2178f9270b515826bf907654b1964</h1>
+
+
+
+<a name="infobox"></a>
+<div class="commit-infobox">
+  <div class="commit-meta">
+    <ul class="people">
+      <li class="avatar">
+        <div>
+		  <a href="http://qt.gitorious.org/%7Ethiago"><img alt="avatar" src="Filer_for_diff/d682525c3ef541c748672cbaba2f332d.txt" height="32" width="32"></a>
+	        </div>
+      </li>
+      <li>
+                  <a href="http://qt.gitorious.org/%7Ethiago">Thiago Macieira</a>                      </li>
+      <li class="meta">1 day ago</li>
+          </ul>
+    <ul class="meta">
+      <li><strong>Tree SHA1:</strong> <a href="http://qt.gitorious.org/qt/qt/trees/c38e1a53cee2178f9270b515826bf907654b1964">be5788f</a></li>
+              <li><strong>Parent SHA1:</strong> <a href="http://qt.gitorious.org/qt/qt/commit/89cc6c1b49e3e33fc7787f1dd9cfaadb43ad4bac">89cc6c1</a> 
+         <small>(Fixed QRasterPaintEngine::drawImage() for 1x1 source rectangles.)</small>
+        </li>
+                  <li>
+        <a href="http://qt.gitorious.org/qt/qt/commit/c38e1a53cee2178f9270b515826bf907654b1964.diff">raw diff</a> 
+        | <a href="http://qt.gitorious.org/qt/qt/commit/c38e1a53cee2178f9270b515826bf907654b1964.patch">raw patch</a>      </li>
+          </ul>
+  </div>
+  <pre class="commit_message">Add support for LIBS_PRIVATE to the VCProject generator too.
+
+Reviewed-by: Marius Storm-Olsen</pre>
+  
+</div>
+            <ul class="diff_stats">
+<li><a href="#qmake/generators/win32/msvc_vcproj.cpp">qmake/generators/win32/msvc_vcproj.cpp</a>&nbsp;4&nbsp;<small class="deletions">-</small><small class="insertions">+++</small></li></ul>
+      
+      <ul class="mode_selector"><li class="list_header">Diff rendering mode:</li><li class="selected">inline</li><li><a href="http://qt.gitorious.org/qt/qt/commit/c38e1a53cee2178f9270b515826bf907654b1964?diffmode=sidebyside">side by side</a></li></ul>              <a name="qmake/generators/win32/msvc_vcproj.cpp"></a>
+      
+        <h4><a href="http://qt.gitorious.org/qt/qt/blobs/c38e1a53cee2178f9270b515826bf907654b1964/qmake/generators/win32/msvc_vcproj.cpp">qmake/generators/win32/msvc_vcproj.cpp</a></h4>
+
+<style type="text/css" media="all">
+
+#feedback { font-size: 1.4em; }
+.ui-selecting { background-color: orange !important; }
+table.codediff td.line-numbers:hover { background-color: orange; }
+.ui-selected { background-color: red !important; }
+.ui-selectable-helper { display: none }
+td.line-num-cut:hover { background-color: gray !important; }
+
+table.codediff td.line-numbers { cursor: pointer; }
+</style>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="ui.core.js"></script>
+<script type="text/javascript" src="ui.selectable.js"></script>
+
+<script type="text/javascript">
+
+// TODO: Limit to changed lines? (why, we got the hunk with context?)
+var selectableElements = "tbody td.line-numbers:not(.line-num-cut)";
+
+$(document).ready(function(){
+        $('table.codediff').selectable({
+            filter : selectableElements, 
+            cancel : 'td.code',
+            // autoRefresh : false, // TODO: Handle manually? (when?)
+            stop : function(event, ui) {
+                var result = "Selected line number(s): ";
+                
+                // TODO: Figure out the real hung-line-numbers so we can pass it on
+                // and store it in the DB if the user saves the comment
+                $(".ui-selected", this).each(function(){
+                    var index = Math.floor($(selectableElements).index(this) / 2) + 1;
+                    result = result + " #" + index;
+                });
+                
+                // TODO: This needs to be styled properly of course
+                $(".ui-selected:last", this).parent("tr").after("<tr id='newcomment'><td></td><td>" +
+                '<a href="http://qt.gitorious.org/%7Ethiago"><img alt="avatar" src="Filer_for_diff/d682525c3ef541c748672cbaba2f332d.txt" height="32" width="32"></a><a href="http://qt.gitorious.org/%7Ethiago">Thiago Macieira</a> said:</td>' +
+                "<td><div style='margin-left: 10px; margin-bottom: 10px;'><textarea id='foobar' style='width: 97% !important; height: 75px;'>" + result + "</textarea><input type='submit'><input type='button' value='Cancel' " +
+                
+                // TODO: Do all of this properly, this is just for protoyping the UI
+                "onClick=\"javascript: $('#newcomment').remove();\"></td></tr>"); 
+                // TODO: Add submit and cancel button
+               
+                $(".ui-selected", this).removeClass("ui-selected");
+                
+                // TODO: Use a uniqe ID for this
+                $('#foobar').focus();
+                
+                // TODO: If the form loses focus without the user typing any text into
+                // it first then remove the whole comment and assume it's a cancel action 
+                
+                // TODO: Allow expanding of single comments, as well as all comments. 
+                
+                // TODO: Allow replies to earlier comments. A reply should have the same context,
+                // ie, the same line-diff, as the original comment. No need for threaded comments,
+                
+                // TODO: Find a nice way to represent comments in the UI (icon in sidebar)
+                
+                // TODO: Find a way to handle multiple comments on the same line
+                
+                // TODO: Figure out how to store comments in the db:
+                //  - we need the actual comment and the author, simple
+                //  - we need the lines that were commented, how to represent?
+                //     - the comment was made in the contex of a diff, not a file
+                //       so the diff (ie from..to) must be taken into account
+                //     - this means storing a comment on a diff of the whole patch
+                //       set will not be visible on a single commit, and vice versa
+                //     - grit gives us a certain context, but we might fetch more,
+                //       so we need to figure out a way to store the comment lines
+                //       relative to the diff and depending on the context size
+            }
+        });
+});
+</script>
+
+
+
+<table class="codediff inline">
+<thead>
+<tr><td class="line-numbers line-num-cut"></td><td class="line-numbers line-num-cut"></td><td>&nbsp;</td></tr>
+</thead>
+
+<tbody><tr class="changes"><td class="line-numbers">623</td><td class="line-numbers">623</td><td class="code unchanged unmod">                        }</td></tr><tr class="changes"><td class="line-numbers">624</td><td class="line-numbers">624</td><td class="code unchanged unmod"></td></tr><tr class="changes"><td class="line-numbers"><span>625</span></td><td class="line-numbers">625</td><td class="code unchanged unmod">                        // Add all unknown libs to the deps</td></tr><tr class="changes"><td class="line-numbers">626</td><td class="line-numbers"></td><td class="code del"><del>                        QStringList where<span class="idiff">("QMAKE_LIBS")</span>;</del></td></tr><tr class="changes"><td class="line-numbers"></td><td class="line-numbers">626</td><td class="code ins"><ins>                        QStringList where<span class="idiff"> = QStringList() &lt;&lt; "QMAKE_LIBS" &lt;&lt; "QMAKE_LIBS_PRIVATE"</span>;</ins></td></tr><tr class="changes"><td class="line-numbers">627</td><td class="line-numbers">627</td><td class="code unchanged unmod">                        if(!tmp_proj.isEmpty("QMAKE_INTERNAL_PRL_LIBS"))</td></tr><tr class="changes"><td class="line-numbers">628</td><td class="line-numbers">628</td><td class="code unchanged unmod">                            where = tmp_proj.variables()["QMAKE_INTERNAL_PRL_LIBS"];</td></tr><tr class="changes"><td class="line-numbers">629</td><td class="line-numbers">629</td><td class="code unchanged unmod">                        for(QStringList::iterator wit = where.begin();</td></tr><tr class="changes"><td class="line-numbers line-num-cut">…</td><td class="line-numbers line-num-cut">…</td><td class="code cut-line"></td></tr><tr class="changes"><td class="line-numbers">1556</td><td class="line-numbers">1556</td><td class="code unchanged unmod">    }</td></tr><tr class="changes"><td class="line-numbers">1557</td><td class="line-numbers">1557</td><td class="code unchanged unmod"></td></tr><tr class="changes"><td class="line-numbers">1558</td><td class="line-numbers">1558</td><td class="code unchanged unmod">    project-&gt;values("QMAKE_LIBS") += escapeFilePaths(project-&gt;values("LIBS"));</td></tr><tr class="changes"><td class="line-numbers"></td><td class="line-numbers">1559</td><td class="code ins"><ins>    project-&gt;values("QMAKE_LIBS_PRIVATE") += escapeFilePaths(project-&gt;values("LIBS_PRIVATE"));</ins></td></tr><tr class="changes"><td class="line-numbers">1559</td><td class="line-numbers">1560</td><td class="code unchanged unmod"></td></tr><tr class="changes"><td class="line-numbers">1560</td><td class="line-numbers">1561</td><td class="code unchanged unmod">     // Get filename w/o extension -----------------------------------</td></tr><tr class="changes"><td class="line-numbers">1561</td><td class="line-numbers">1562</td><td class="code unchanged unmod">    QString msvcproj_project = "";</td></tr><tr class="changes"><td class="line-numbers line-num-cut">…</td><td class="line-numbers line-num-cut">…</td><td class="code cut-line"></td></tr><tr class="changes"><td class="line-numbers">1600</td><td class="line-numbers">1600</td><td class="code unchanged unmod"></td></tr><tr class="changes"><td class="line-numbers">1601</td><td class="line-numbers">1601</td><td class="code unchanged unmod">    // $$QMAKE.. -&gt; $$MSVCPROJ.. -------------------------------------</td></tr><tr class="changes"><td class="line-numbers">1602</td><td class="line-numbers">1602</td><td class="code unchanged unmod">    project-&gt;values("MSVCPROJ_LIBS") += project-&gt;values("QMAKE_LIBS");</td></tr><tr class="changes"><td class="line-numbers"></td><td class="line-numbers">1603</td><td class="code ins"><ins>    project-&gt;values("MSVCPROJ_LIBS") += project-&gt;values("QMAKE_LIBS_PRIVATE");</ins></td></tr><tr class="changes"><td class="line-numbers">1603</td><td class="line-numbers">1604</td><td class="code unchanged unmod">    project-&gt;values("MSVCPROJ_LFLAGS") += project-&gt;values("QMAKE_LFLAGS");</td></tr><tr class="changes"><td class="line-numbers">1604</td><td class="line-numbers">1605</td><td class="code unchanged unmod">    if(!project-&gt;values("QMAKE_LIBDIR").isEmpty()) {</td></tr><tr class="changes"><td class="line-numbers">1605</td><td class="line-numbers">1606</td><td class="code unchanged unmod">        QStringList strl = project-&gt;values("QMAKE_LIBDIR");</td></tr></tbody></table>            
+
+
+
+<h2 id="comments">Comments</h2>
+<div class="comments">
+  </div>
+
+
+
+<h3>Add a new comment:</h3>
+
+  <p>
+    <em><a href="http://qt.gitorious.org/sessions/new">Login</a> or 
+    <a href="http://qt.gitorious.org/users/new">create an account</a> to post a comment</em>
+  </p>
+    </div>
+        <div id="footer">
+      
+<div class="powered-by">
+  <a href="http://gitorious.org/"><img alt="Powered_by_gitorious" src="Filer_for_diff/powered_by_gitorious.png" title="Powered by Gitorious"></a></div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="Filer_for_diff/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52238-3");
+pageTracker._setDomainName(".gitorious.org");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>      <ul>
+        <li><a href="http://qt.gitorious.org/">Home</a> | </li>
+        <li><a href="http://qt.gitorious.org/about/faq">FAQ</a> | </li>
+        <li><a href="http://qt.gitorious.org/contact">Contact</a> | </li>
+        <li><a href="http://qt.nokia.com/">Qt by Nokia</a></li>
+      </ul>
+              <ul class="legal">
+          <li><a href="http://en.gitorious.org/tos">Terms of Service</a> | </li>
+          <li><a href="http://en.gitorious.org/privacy_policy">Privacy Policy</a></li>
+        </ul>
+          <div class="clear"></div>
+  </div>
+</div></body></html>
