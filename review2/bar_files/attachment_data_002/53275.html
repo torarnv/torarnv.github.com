@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<style>
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+.status {
+    display: block;
+    float: left;
+    margin: 1px;
+    padding: 1px 2px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #AAA;
+    background-color: white;
+    font-size: 11px;
+}
+.pass {
+    background-color: #8FDF5F;
+    border: 1px solid #4F8530;
+    cursor: pointer;
+}
+.fail {
+    background-color: #E98080;
+    border: 1px solid #A77272;
+    cursor: pointer;
+}
+.pending {
+    background-color: #FFFC6C;
+    border: 1px solid #C5C56D;
+    cursor: pointer;
+}
+.error {
+  background-color: #E0B0FF;
+  border: 1px solid #ACA0B3;
+  cursor: pointer;
+}
+</style>
+<script>
+function statusDetail(patch_id) {
+  top.location = "/patch/" + patch_id
+}
+</script>
+</head><body>
+<!-- FIXME: Find some way to remove this copy-and-paste code! -->
+<div class="status pass" onclick="statusDetail(53275)" title="1 hour, 51 minutes ago">
+  style
+</div>
+<div class="status pass" onclick="statusDetail(53275)" title="1 hour, 46 minutes ago">
+  chromium
+</div>
+<div class="status ">
+  qt
+</div>
+<div class="status pass" onclick="statusDetail(53275)" title="1 hour, 46 minutes ago">
+  gtk
+</div>
+<div class="status pass" onclick="statusDetail(53275)" title="1 hour, 46 minutes ago">
+  mac
+</div>
+<div class="status ">
+  win
+</div>
+</body></html>

@@ -1,0 +1,226 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link href="attachment_data_002/global_002.css" rel="stylesheet" type="text/css">
+<link href="attachment_data_002/global.css" rel="stylesheet" type="text/css">
+<style>
+* { font-size: small; }
+#comment { width: 100%; height: 100%; font-family: monospace; }
+#form-controls { height: 40px; }
+#form-controls td { width: 25%; text-align: center; }
+</style>
+
+<script type="text/javascript">
+  <!--
+  var viewing_formatted_diff = true;
+  function viewPrettyPatch()
+    {
+      viewing_formatted_diff = !viewing_formatted_diff;
+      var src = "attachment.cgi?id=53275";
+      var buttonText = "View Formatted Diff";
+      if (viewing_formatted_diff) {
+        src += "&action=prettypatch"
+        buttonText = "View Plain Diff";
+      }
+
+      top.document.getElementById('viewFrame').src = src;
+      document.getElementById('viewPrettyPatchButton').innerHTML = buttonText;
+    }
+    function omitUntouchedComment()
+    {
+        // If someone just left the entire comment alone, then upload the form
+        // with no comment at all.
+        var textarea = document.getElementById("comment");
+        if (textarea.defaultValue === textarea.value)
+            textarea.value = "";
+    }
+  //-->
+</script>
+
+</head><body><form method="post" action="attachment.cgi" target="_top" onsubmit="omitUntouchedComment(); return true;">
+  <input name="id" value="53275" type="hidden">
+  <input name="action" value="update" type="hidden">
+  <input name="contenttypemethod" value="manual" type="hidden">
+  <input name="delta_ts" value="2010-04-13 14:51:56" type="hidden">
+  <input name="description" value="Patch" type="hidden">
+  <input name="filename" value="bug-37517-20100413163031.patch" type="hidden">
+  <input name="contenttypeentry" value="text/plain" type="hidden"><br>
+  <input name="ispatch" value="1" type="hidden">
+  <input name="isobsolete" value="0" type="hidden">
+
+<table style="width: 100%; height: 90%;" cellpadding="0" cellspacing="0">
+<tbody><tr id="form-controls">
+<td>
+    <button type="submit">Submit</button>
+</td>
+<td><script type="text/javascript">
+<!-- 
+  // Enables or disables a requestee field depending on whether or not
+  // the user is requesting the corresponding flag.
+  function toggleRequesteeField(flagField, no_focus)
+  {
+    // Convert the ID of the flag field into the ID of its corresponding
+    // requestee field and then use the ID to get the field.
+    var id = flagField.name.replace(/flag(_type)?-(\d+)/, "requestee$1-$2");
+    var requesteeField = document.getElementById(id);
+    if (!requesteeField) return;
+    
+    // Enable or disable the requestee field based on the value
+    // of the flag field.
+    if (flagField.value == "?") {
+        requesteeField.disabled = false;
+        if (!no_focus) requesteeField.focus();
+    } else                         
+        requesteeField.disabled = true;
+  }
+  
+  // Disables requestee fields when the window is loaded since they shouldn't
+  // be enabled until the user requests that flag type.
+  function disableRequesteeFields()
+  {
+    var inputElements = document.getElementsByTagName("input");
+    var selectElements = document.getElementsByTagName("select");
+    //You cannot update Node lists, so you must create an array to combine the NodeLists
+    var allElements = [];
+    for( var i=0; i < inputElements.length; i++ ) {
+        allElements[allElements.length] = inputElements.item(i);
+    }
+    for( var i=0; i < selectElements.length; i++ ) { //Combine inputs with selects
+        allElements[allElements.length] = selectElements.item(i);
+    }
+    var inputElement, id, flagField;
+    for ( var i=0 ; i<allElements.length ; i++ )
+    {
+      inputElement = allElements[i];
+      if (inputElement.name.search(/^requestee(_type)?-(\d+)$/) != -1)
+      {
+        // Convert the ID of the requestee field into the ID of its corresponding
+        // flag field and then use the ID to get the field.
+        id = inputElement.name.replace(/requestee(_type)?-(\d+)/, "flag$1-$2");
+        flagField = document.getElementById(id);
+        if (flagField && flagField.value != "?")
+            inputElement.disabled = true;
+      }
+    }
+  }
+  window.onload = disableRequesteeFields;
+// -->
+</script>
+
+
+
+
+<table id="flags">
+    <tbody><tr>
+      <th colspan="3">
+        Flags:
+      </th>
+    </tr>
+
+  
+    
+    
+    
+    
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+          <label title="Request for patch review." for="flag_type-1">review</label>
+        </td>
+        <td>
+          <select id="flag_type-1" name="flag_type-1" title="Request for patch review." onchange="toggleRequesteeField(this);" class="flag_select">
+            <option selected="selected" value="X"></option>
+              <option value="?">?</option>
+              <option value="+">+</option>
+              <option value="-">-</option>
+          </select>
+        </td>
+      </tr>
+    
+    
+    
+    
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+          <label title="Request that a patch be added to the commit-queue for automatic committing.  commit-queue should only be set to commit-queue+ by webkit committers.  Anyone may set this flag to '?' to request approval of automatic commit." for="flag_type-3">commit‑queue</label>
+        </td>
+        <td>
+          <select id="flag_type-3" name="flag_type-3" title="Request that a patch be added to the commit-queue for automatic committing.  commit-queue should only be set to commit-queue+ by webkit committers.  Anyone may set this flag to '?' to request approval of automatic commit." onchange="toggleRequesteeField(this);" class="flag_select">
+            <option selected="selected" value="X"></option>
+              <option value="?">?</option>
+              <option value="+">+</option>
+              <option value="-">-</option>
+          </select>
+        </td>
+      </tr>
+
+  
+
+</tbody></table><br>
+</td>
+<td>
+    <table>
+    <tbody><tr><th style="text-align: left;">Bot Status:</th></tr>
+    <tr>
+    <td>
+      <div class="statusBubble" style="margin-left: 30px;">
+        <iframe src="attachment_data_002/53275.html" style="border: medium none ; width: 300px; height: 20px;" scrolling="no">
+        </iframe>
+      </div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+<td>
+    <div>Back to <a href="https://bugs.webkit.org/show_bug.cgi?id=37517" target="_top">Bug #37517</a></div>
+    <script type="text/javascript">
+    <!--
+        if (typeof document.getElementById == "function") {
+          document.write('<p><button type="button" id="viewPrettyPatchButton" onclick="viewPrettyPatch();">View Plain Diff</button></p>');
+        }
+    //-->
+    </script><p><button type="button" id="viewPrettyPatchButton" onclick="viewPrettyPatch();">View Plain Diff</button></p>
+</td>
+</tr>
+<tr>
+<td colspan="4">
+Enter comments below:<br>
+<textarea id="comment" name="comment" wrap="soft">&gt; diff --git
+a/WebKitTools/ChangeLog b/WebKitTools/ChangeLog
+&gt; index 3767e9e..c90f61d 100644
+&gt; --- a/WebKitTools/ChangeLog
+&gt; +++ b/WebKitTools/ChangeLog
+&gt; @@ -1,3 +1,14 @@
+&gt; +2010-04-13 Tor Arne VestbÃ¸ &lt;tor.arne.vestbo@nokia.com&gt;
+&gt; +
+&gt; + Reviewed by NOBODY (OOPS!).
+&gt; +
+&gt; + Remove duplicate function for new-run-webkit-tests
+&gt; + https://bugs.webkit.org/show_bug.cgi?id=37517
+&gt; +
+&gt; + The version() function was already implemented.
+&gt; +
+&gt; + * Scripts/webkitpy/layout_tests/port/webkit.py:
+&gt; +
+&gt; 2010-04-13 Adam Roben &lt;aroben@apple.com&gt;
+&gt; &gt; Fix run-webkit-tests on Windows with spaces in the path
+&gt; diff --git
+a/WebKitTools/Scripts/webkitpy/layout_tests/port/webkit.py
+b/WebKitTools/Scripts/webkitpy/layout_tests/port/webkit.py
+&gt; index 814808e..d10fa90 100644
+&gt; --- a/WebKitTools/Scripts/webkitpy/layout_tests/port/webkit.py
+&gt; +++ b/WebKitTools/Scripts/webkitpy/layout_tests/port/webkit.py
+&gt; @@ -288,9 +288,6 @@ class WebKitPort(base.Port):
+&gt; return self.test_base_platform_names() + (
+&gt; 'mac-tiger', 'mac-leopard', 'mac-snowleopard')
+&gt; &gt; - def version(self):
+&gt; - raise NotImplementedError('WebKitPort.version')
+&gt; -
+&gt; def default_configuration(self):
+&gt; # This is a bit of a hack. This state exists in a much nicer form
+in
+&gt; # perl-land.
+</textarea><br>
+</td></tr>
+</tbody></table>
+
+</form></body></html>
