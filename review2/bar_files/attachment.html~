@@ -85,8 +85,7 @@ h1 :hover {
 .ui-selectable-helper { display: none }
 span.lineNumber { cursor: pointer; }
 </style>
-<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="jquery-ui-1.8.custom.min.js"></script>
+
 
 
 <script type="text/javascript">
@@ -150,6 +149,7 @@ $(document).ready(function(){
 
             $(".ui-selected", this).removeClass("ui-selected"); 
 
+            // FIXME: use unique comment field ids
             $('textarea#comment').focus();
             $('textarea#comment').text(result);
       }
