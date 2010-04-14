@@ -142,8 +142,8 @@ $(document).ready(function(){
             $(".ui-selected:last", this).parent("div").after(
 
 "<div class='newcomment' id='newcomment'><textarea id='comment' style='width: 97% !important;' rows='" + (lines + 5) + "'></textarea>" +
-"<input type='submit' onClick=\"javascript: "
-+ " window.parent.frames[1].document.forms[0].comment.value = 'foo'\""  +
+"<input type='button' value='ok' onClick=\"javascript: "
++ " window.parent.frames[1].document.forms[0].comment.value = $('textarea#comment').text();\""  +
 "><input type='button' value='Cancel' " +
 
                 "onClick=\"javascript: $('#newcomment').remove();\"></div>");	
