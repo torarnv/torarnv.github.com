@@ -85,7 +85,8 @@ h1 :hover {
 .ui-selectable-helper { display: none }
 span.lineNumber { cursor: pointer; }
 </style>
-
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.custom.min.js"></script>
 
 
 <script type="text/javascript">
@@ -141,7 +142,7 @@ $(document).ready(function(){
             $(".ui-selected:last", this).parent("div").after(
 
 "<div class='newcomment' id='newcomment'><textarea id='comment' style='width: 97% !important;' rows='" + (lines + 5) + "'></textarea>" +
-"<input type='submit' onClick=\"javascript:  $('textarea.comment', window.parent.frames[1].document).remove()\""  +
+"<input type='submit' onClick=\"javascript:  window.frames[1].document.forms[0].comment.value = 'foo'\""  +
 "><input type='button' value='Cancel' " +
 
                 "onClick=\"javascript: $('#newcomment').remove();\"></div>");	
