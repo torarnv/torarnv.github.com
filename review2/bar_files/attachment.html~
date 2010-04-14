@@ -143,7 +143,7 @@ $(document).ready(function(){
 
 "<div class='newcomment' id='newcomment'><textarea id='comment' style='width: 97% !important;' rows='" + (lines + 5) + "'></textarea>" +
 "<input type='button' value='ok' onClick=\"javascript: "
-+ " window.parent.frames[1].document.forms[0].comment.value = $('textarea#comment').text()\""  +
++ " window.parent.frames[1].document.forms[0].comment.value = $('textarea#comment').text();\""  +
 "><input type='button' value='Cancel' " +
 
                 "onClick=\"javascript: $('#newcomment').remove();\"></div>");	
@@ -157,6 +157,8 @@ $(document).ready(function(){
       }
 
 	});
+
+    window.parent.frames[1].document.forms[0].comment.value = "";
 });
 
 </script>
