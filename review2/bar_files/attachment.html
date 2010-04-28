@@ -102,6 +102,8 @@ span.lineNumber { cursor: pointer; }
 
 var selectableElements = "lineNumber";
 
+$.fn.reverse = [].reverse;
+
 $(document).ready(function(){
   	$('.DiffSection').selectable({
         filter : 'div.Line span.lineNumber',
@@ -136,18 +138,17 @@ $(document).ready(function(){
 
                      result += toA + "," + toB + "):\n";
 
-                    $(selected).each(function() {
-                        if ($(this).parent().hasClass("add"))
+                    $(selected).parents("div.Line").reverse().each(function() {
+                        if ($(this).hasClass("add"))
                             result += "+";
-                        else if ($(this).parent().hasClass("remove"))
+                        else if ($(this).hasClass("remove"))
                             result += "-";
                         else
                             result += " ";
-                        
                         lines += 1;
-                        result += $("span.text", $(this).parent()).text() + "\n";
-                    });
+                        result += $("span.text", $(this)).text() + "\n";
 
+                    });
                     result += "\n";
 
                     var d = new Date();
