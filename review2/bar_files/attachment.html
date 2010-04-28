@@ -84,6 +84,15 @@ h1 :hover {
 .ui-selectable-helper { display: none }
 .ui-selectable-helper { display: none }
 span.lineNumber { cursor: pointer; }
+
+.draftcomment {
+    background-color: #FFFFCC;
+}
+
+.draftcomment pre {
+    margin: 0px;
+}
+
 </style>
 <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="jquery-ui-1.8.custom.min.js"></script>
@@ -98,68 +107,78 @@ $(document).ready(function(){
         filter : 'div.Line span.lineNumber',
         cancel : 'span.text, div.newcomment',
 		stop : function(event, ui) {
-            var result = "";
-            var lines = 0;
-            var selected = $(".ui-selected", this);
-            
+                    var result = "";
+                    var lines = 0;
+                    var selected = $(".ui-selected", this);
+                    
 
-            // FIXME: Do this without all the copy pasting of code
-            result += "@@ -";
-            var fromNumbers = $("span.lineNumber", selected.first().parent());
-            var fromA = "1";
-            var fromB = "1";
-            if (jQuery.trim(fromNumbers.first().text()).length > 0)
-                fromA = jQuery.trim(fromNumbers.first().text());
-            if (jQuery.trim(fromNumbers.last().text()).length > 0)
-                fromB = jQuery.trim(fromNumbers.last().text());
+                    // FIXME: Do this without all the copy pasting of code
+                    result += "@@ -";
+                    var fromNumbers = $("span.lineNumber", selected.first().parent());
+                    var fromA = "1";
+                    var fromB = "1";
+                    if (jQuery.trim(fromNumbers.first().text()).length > 0)
+                        fromA = jQuery.trim(fromNumbers.first().text());
+                    if (jQuery.trim(fromNumbers.last().text()).length > 0)
+                        fromB = jQuery.trim(fromNumbers.last().text());
 
-            result += fromA + "," + fromB + " +";;
+                    result += fromA + "," + fromB + " +";;
 
-            var toNumbers = $("span.lineNumber", selected.last().parent());
-            var toA = "1";
-            var toB = "1";
-            if (jQuery.trim(toNumbers.first().text()).length > 0)
-                toA = jQuery.trim(toNumbers.first().text());
-            if (jQuery.trim(toNumbers.last().text()).length > 0)
-                toB = jQuery.trim(toNumbers.last().text());
+                    var toNumbers = $("span.lineNumber", selected.last().parent());
+                    var toA = "1";
+                    var toB = "1";
+                    if (jQuery.trim(toNumbers.first().text()).length > 0)
+                        toA = jQuery.trim(toNumbers.first().text());
+                    if (jQuery.trim(toNumbers.last().text()).length > 0)
+                        toB = jQuery.trim(toNumbers.last().text());
 
-             result += toA + "," + toB + " @@:\n";
+                     result += toA + "," + toB + " @@:\n";
 
-            $(selected).each(function() {
-                if ($(this).parent().hasClass("add"))
-                    result += "+";
-                else if ($(this).parent().hasClass("remove"))
-                    result += "-";
-                else
-                    result += " ";
-                
-                lines += 1;
-                result += $("span.text", $(this).parent()).text() + "\n";
+                    $(selected).each(function() {
+                        if ($(this).parent().hasClass("add"))
+                            result += "+";
+                        else if ($(this).parent().hasClass("remove"))
+                            result += "-";
+                        else
+                            result += " ";
+                        
+                        lines += 1;
+                        result += $("span.text", $(this).parent()).text() + "\n";
+                    });
+
+                    result += "\n";
+
+                    var d = new Date();
+                    var id = d.getTime();
+
+                    $(".ui-selected:last", this).parent("div").after(
+                        "<div class='newcomment' id='comment-" + id + "'>" +
+                            "<textarea id='comment-area-" + id + "' style='width: 97% !important;' rows='" + (lines + 5) + "'></textarea><br/>" +
+                            "<input type='button' value='Add' onClick='submitComment(" + id + ")'>" + 
+                            "<input type='button' value='Cancel' onClick='cancelComment(" + id + ")'>" +
+                        "</div>");
+
+                    $(".ui-selected", this).removeClass("ui-selected"); 
+
+                    $('textarea#comment-area-' + id).focus().text(result);
+//                    $('textarea#comment-area-' + id).text(result);
+              }
+
             });
 
-            result += "\n";
-
-            $(".ui-selected:last", this).parent("div").after(
-
-"<div class='newcomment' id='newcomment'><textarea id='comment' style='width: 97% !important;' rows='" + (lines + 5) + "'></textarea>" +
-"<input type='button' value='ok' onClick=\"javascript: " +
-" window.parent.frames[1].document.forms[0].comment.value += $('textarea#comment').val();\""  +
-"><input type='button' value='Cancel' " +
-
-                "onClick=\"javascript: $('#newcomment').remove();\"></div>");	
-            
-
-            $(".ui-selected", this).removeClass("ui-selected"); 
-
-            // FIXME: use unique comment field ids
-            $('textarea#comment').focus();
-            $('textarea#comment').text(result);
-      }
-
-	});
-
-    window.parent.frames[1].document.forms[0].comment.value = "";
+            window.parent.frames[1].document.forms[0].comment.value = "";
 });
+
+function submitComment(id) {
+    var comment = $('textarea#comment-area-' + id).val();
+//    window.parent.frames[1].document.forms[0].comment.value += comment + '\n\n';
+    $("#comment-" + id).replaceWith("<div class='draftcomment'><pre>" + comment + "</pre></div>");
+}
+
+function cancelComment(id) {
+    $("#comment-" + id).remove();
+}
+
 
 </script>
 </head><body><div class="FileDiff">
