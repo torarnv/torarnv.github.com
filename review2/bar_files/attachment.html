@@ -161,7 +161,6 @@ $(document).ready(function(){
                     $(".ui-selected", this).removeClass("ui-selected"); 
 
                     $('textarea#comment-area-' + id).focus().text(result);
-//                    $('textarea#comment-area-' + id).text(result);
               }
 
             });
@@ -171,7 +170,7 @@ $(document).ready(function(){
 
 function submitComment(id) {
     var comment = $('textarea#comment-area-' + id).val();
-//    window.parent.frames[1].document.forms[0].comment.value += comment + '\n\n';
+    window.parent.frames[1].document.forms[0].comment.value += comment + '\n\n';
     $("#comment-" + id).replaceWith("<div class='draftcomment'><pre>" + comment + "</pre></div>");
 }
 
